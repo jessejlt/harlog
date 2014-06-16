@@ -1,4 +1,4 @@
-HARLog
+HARLog [![GoDoc](https://godoc.org/github.com/jessejlt/harlog?status.png)](https://godoc.org/github.com/jessejlt/harlog)
 ---
 
 Package harlog implements [HAR](http://www.softwareishard.com/blog/har-viewer/) log version [1.2](http://www.softwareishard.com/blog/har-12-spec/).
