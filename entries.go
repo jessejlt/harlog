@@ -17,12 +17,13 @@ type Entry struct {
 type Entries []*Entry
 
 // Add log entry
-func (e *Entries) Add(req *http.Request) {
+func (e *Entries) Add(req *http.Request, resp *http.Response) {
 
   entry := &Entry{
-    Time:    0,
-    Started: time.Now().Format(time.RFC1123),
-    Request: NewRequest(req),
+    Time:     0,
+    Started:  time.Now().Format(time.RFC1123),
+    Request:  NewRequest(req),
+    Response: NewResponse(resp),
   }
   *e = append(*e, entry)
 }
