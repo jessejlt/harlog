@@ -3,6 +3,8 @@ HARLog
 
 Package harlog implements [HAR](http://www.softwareishard.com/blog/har-viewer/) log version [1.2](http://www.softwareishard.com/blog/har-12-spec/).
 
+[godoc](https://godoc.org/github.com/jessejlt/harlog)
+
 Use
 ---
 
