@@ -1,9 +1,6 @@
 package harlog
 
-import (
-  "encoding/json"
-  "log"
-)
+import "encoding/json"
 
 const version = "1.2"
 
@@ -20,12 +17,14 @@ type HARLog struct {
 }
 
 // Dump marshals the HARLog to JSON and logs it
-func (h HARLog) Dump() {
+func (h HARLog) Dump() string {
 
   j, err := json.Marshal(h)
   if err == nil {
-    log.Print(string(j))
+    return string(j)
   }
+
+  return ""
 }
 
 // NewHARLog constructs a new HAR logger
