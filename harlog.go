@@ -5,25 +5,38 @@ import (
   "log"
 )
 
-type Entry map[string][]string
+const version = "1.2"
 
-func (e Entry) Add(key, value string) {
-  e[key] = append(e[key], value)
+type creator struct {
+  Name    string `json:"name"`
+  Version string `json:"version"`
 }
 
+// HARLog contains requst / response lifecycle entries
 type HARLog struct {
-  Entry Entry
+  Version string
+  Creator creator
+  Entries Entries
 }
 
+// Dump marshals the HARLog to JSON and logs it
 func (h HARLog) Dump() {
 
-  j, err := json.Marshal(h.Entry)
+  j, err := json.Marshal(h)
   if err == nil {
     log.Print(string(j))
   }
 }
 
+// NewHARLog constructs a new HAR logger
 func NewHARLog() *HARLog {
 
-  return &HARLog{Entry: make(Entry)}
+  c := &creator{
+    Name:    "harlog",
+    Version: "1.0"}
+
+  return &HARLog{
+    Version: version,
+    Entries: make([]*Entry, 0),
+    Creator: *c}
 }

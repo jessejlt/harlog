@@ -2,17 +2,33 @@ package harlog
 
 import "testing"
 
-func TestNewLog(t *testing.T) {
+// func TestNewLog(t *testing.T) {
+//
+//   har := NewHARLog()
+//   har.Entries.Add()
+//   har.Dump()
+// }
+
+// func TestDump(t *testing.T) {
+//
+//   har := NewHARLog()
+//   har.Entries.Add()
+//   har.Entries.Add()
+//   har.Dump()
+// }
+
+// func TestNewLog(t *testing.T) {
+//
+//   har := NewHARLog()
+//   entry := Entry{Time: 5}
+//   har.Entries = append(har.Entries, entry)
+//   har.Dump()
+// }
+
+func TestAddEntry(t *testing.T) {
 
   har := NewHARLog()
-  har.Entry.Add("a", "b")
-}
-
-func TestDump(t *testing.T) {
-
-  har := NewHARLog()
-  har.Entry.Add("a", "b")
-  har.Entry.Add("c", "d")
-  har.Entry.Add("c", "e")
+  har.Entries.Add()
+  har.Entries.Add()
   har.Dump()
 }
