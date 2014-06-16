@@ -1,3 +1,47 @@
+/*
+Package harlog implements the HAR log version 1.2 spec http://www.softwareishard.com/blog/har-12-spec/
+
+Create a new HAR log at the beginning of your request / response lifecycle then add new entries
+each time you make additional requests within lifecycle.
+
+TODO
+Request: cookies, postData
+Response: cookies, content, redirectURL
+
+Example response
+{
+  "Version": "1.2",
+  "Creator": {
+    "name": "harlog",
+    "version": "1.0"
+  },
+  "Entries": [
+    {
+      "startedDateTime": "Sun, 15 Jun 2014 18:12:41 PDT",
+      "time": 0,
+      "request": {
+        "method": "GET",
+        "url": "http://www.example.com/path/?param=value",
+        "httpVersion": "HTTP/1.1",
+        "queryString": "param=value",
+        "bodySize": 0,
+        "headers": {}
+      },
+      "response": {
+        "status": 200,
+        "StatusText": "200 OK",
+        "httpVersion": "HTTP/1.0",
+        "headers": {
+          "Connection": [
+            "close"
+          ]
+        },
+        "bodySize": -1
+      }
+    }
+  ]
+}
+*/
 package harlog
 
 import "encoding/json"
